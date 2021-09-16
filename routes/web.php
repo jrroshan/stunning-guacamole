@@ -24,10 +24,13 @@ Route::view('/home','home');
 
 Route::get('/login',[LoginController::class,'index'])->name('login');
 Route::post('/login',[LoginController::class,'validateData']);
-Route::get('/logout',[LoginController::class,'logout'])->name('logout');
+Route::post('/logout',[LoginController::class,'logout'])->name('logout');
+Route::get('/verify',[LoginController::class,'verifyUser'])->name('verify');
 
 Route::get('/register',[RegisterController::class,'index'])->name('register');
 Route::post('/register',[RegisterController::class,'store']);
+
+Route::post('/verify/resend',[LoginController::class,'resend'])->name('verification.resend');
 // Route::get('/register',[])
 
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
